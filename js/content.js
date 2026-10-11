@@ -84,5 +84,7 @@ var categories=[
  {name:'Maker Projects & DIY Builds',d:'Woodwork, 3D modelling and builds.'},
  {name:'Experiments & Behind the Scenes',d:'What worked, what failed, what I learned.'}];
 // Add real videos here: {id:'YOUTUBE_VIDEO_ID',title:'...',category:'one of the names above'}
-var videos=[];
+var videos=[
+{id:'zenpoo--jCw',title:'Gunna Feat Chebii & Cecil', 
+category:'Maker Projects & DIY Builds'}, ];
 window.DATA={site:site,roles:roles,expertise:expertise,timeline:timeline,sections:sections,categories:categories,videos:videos};
