@@ -7,8 +7,8 @@ var site={
   phones:[{label:'0700 477 205',tel:'+254700477205'},{label:'0739 420 343',tel:'+254739420343'}],
   location:'Eldoret, Kenya',
   portrait:'',            // e.g. 'images/portrait.jpg'
-  channelUrl:'',          // your real YouTube channel URL
-  socials:[{name:'YouTube',url:''},{name:'GitHub',url:''},{name:'LinkedIn',url:''},{name:'Other platform',url:''}],
+  channelUrl:'https://youtube.com/@emmanuelkchebii937?si=zWQi-kdYfVHUL3EQ',          // your real YouTube channel URL
+  socials:[{name:'YouTube',url:'https://youtube.com/@emmanuelkchebii937?si=zWQi-kdYfVHUL3EQ'},{name:'GitHub',url:'https://github.com/ECHEBII937'},{name:'LinkedIn',url:'https://www.linkedin.com/in/emmanuel-k-chebii'},{name:'Other platform',url:''}],
 };
 var roles=['Technical Trainer','ICT Professional','Graphic Designer','AI & Automation Enthusiast','Web Developer','Maker'];
 var expertise=[
