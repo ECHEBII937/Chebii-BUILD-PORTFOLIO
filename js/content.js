@@ -66,6 +66,11 @@ var sections=[
  pr('teaching-pack','Teaching resource pack','Teaching Resources','Sample product.'),
  pr('project-guide','Practical project guide','Guides','Sample product.')]},
 {key:'journal',title:'Journal',lead:'Project updates, tutorials, design process, experiments, builds and what I learn along the way.',entries:[
+  mk('first-build-log','What I learned building my first stand','Project Updates', 
+'Three mistakes and what they taught me.', 
+{date:'2026-10-20',image:'images/stand-cover.jpg', 
+body:['AHHHHHHHHHHHHHHHHHHH','AHHHHHHHHHHH','AHHHHHHHHHHHHHHHHH'], 
+placeholder:false}), 
  mk('sample-project-update','Sample post: project update','Project Updates','Replace with a real project update.'),
  mk('sample-tutorial','Sample post: tutorial','Tutorials','Replace with a real tutorial.'),
  mk('sample-reflection','Sample post: reflection','Reflections','Replace with a real reflection.')]},
