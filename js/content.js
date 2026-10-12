@@ -69,6 +69,7 @@ var sections=[
   mk('first-build-log','What I learned building my first stand','Project Updates', 
 'Three mistakes and what they taught me.', 
 {date:'2026-10-20',image:'images/stand-cover.jpg', 
+ gallery:['images/stand-cover.jpg','images/stand-cover.jpg','images/stand-cover.jpg'],
 body:['AHHHHHHHHHHHHHHHHHHH','AHHHHHHHHHHH','AHHHHHHHHHHHHHHHHH'], 
 placeholder:false}), 
  mk('sample-project-update','Sample post: project update','Project Updates','Replace with a real project update.'),
