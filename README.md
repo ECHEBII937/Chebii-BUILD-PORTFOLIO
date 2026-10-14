@@ -4,7 +4,7 @@
 
 Personal portfolio and creator website for Emmanuel Kibiwott Chebii, a Technical Trainer, ICT Professional, Graphic Designer, AI & Automation Enthusiast, Web Developer and Maker based in Eldoret, Kenya.
 
-Live site: https://echebii937.github.io/Chebii-BUILD-PORTFOLIO/
+Live site: https://chebii.co.ke/
 
 ## About the project
 
