@@ -50,28 +50,14 @@ var sections=[
  mm('diy-furniture','DIY furniture','DIY & Furniture','Furniture built by hand.'),
  mm('monitor-stands','Custom monitor stands','DIY & Furniture','Monitor stands made to fit the desk.'),
  mm('woodworking','Woodworking experiments','Woodworking','Joinery, finishes and tool experiments.'),
- mm(
-  'model-boat',
-  'Model boat construction',
-  'Model Building',
-  'Building a model boat step by step.',{
-    date: '2026-10-14',
-    image: 'images/model-boat-cover.jpg',
-    gallery: [
-      'images/model-boat-cover.jpg',
-      'images/model-boat-01.jpg',
-      'images/model-boat-02.jpg'
-    ],
-    body: [
-      'The beginning of my model boat construction project.',
-      'Documenting the materials, tools, design decisions and construction process.',
-      'Each stage brings new challenges, adjustments and lessons.'
-    ],
-    placeholder: false
-  }
-),
+ mm('model-boat','Model boat construction','Model Building','Building a model boat step by step.', 
+    {date:'2026-10-20',image:'images/stand-cover.jpg', 
+ gallery:['images/model-boat-cover','images/model-boat-02','images/model-boat-01'],
+body:['AHHHHHHHHHHHHHHHHHHH','AHHHHHHHHHHH','AHHHHHHHHHHHHHHHHH'], 
+placeholder:false}), 
+ mm('3d-modelling','3D modelling','3D Modelling','Models and prototypes designed on screen.'),
  mm('future-builds','Future builds','Prototypes','Ideas on the bench.')]},
-  
+ 
 {key:'resources',title:'Resources & teaching',lead:'Lesson plans, session plans, ICT guides, templates and AI tools for trainers.',note:'Use the search box and categories to find materials. Add file links to each entry as you upload files.',entries:[
  rs('lesson-plans','Lesson plans','Lesson Plans','CBET lesson plans.'),
  rs('session-plans','Session plans','Session Plans','Session plans for practical and theory delivery.'),
