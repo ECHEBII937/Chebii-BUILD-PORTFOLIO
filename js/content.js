@@ -45,13 +45,38 @@ var sections=[
  sw('qr-ticket-verification','QR Code Event Ticket Verification','Event ticket verification with QR codes.'),
  sw('learning-plan-generator','AI-assisted Learning Plan Generator','Learning plans for TVET trainers.'),
  sw('sme-digital-solutions','Web, automation & SME digital solutions','Web development and automation for small businesses.')]},
-{key:'maker',title:'Maker Lab',lead:'A workshop journal: what I tried, what it took, and what I got wrong. Each build page holds materials, progress, lessons and a build log.',entries:[
+  
+{key:'maker',title:'Maker Lab',lead:'A record of things I imagine, design, build, break, and figure out along the way.From model boats and woodworking to 3D modelling and hands-on experiments, this is where I document the process behind each project — the materials I use, the decisions I make, the mistakes I learn from, and the progress that gets me closer to the finished build.Not everything works the first time. Thats part of the process.',entries:[
  mm('diy-furniture','DIY furniture','DIY & Furniture','Furniture built by hand.'),
  mm('monitor-stands','Custom monitor stands','DIY & Furniture','Monitor stands made to fit the desk.'),
  mm('woodworking','Woodworking experiments','Woodworking','Joinery, finishes and tool experiments.'),
  mm('model-boat','Model boat construction','Model Building','Building a model boat step by step.'),
- mm('3d-modelling','3D modelling','3D Modelling','Models and prototypes designed on screen.'),
+ mm(
+  'model-boat',
+  'Model boat construction',
+  'Model Building',
+  'Building a model boat step by step.',
+  {
+    date: '2026-10-14',
+    image: 'images/model-boat-cover.jpg',
+
+    gallery: [
+      'images/model-boat-cover.jpg',
+      'images/model-boat-01.jpg',
+      'images/model-boat-02.jpg'
+    ],
+
+    body: [
+      'The beginning of my model boat construction project.',
+      'Documenting the materials, tools, design decisions and construction process.',
+      'Each stage brings new challenges, adjustments and lessons.'
+    ],
+
+    placeholder: false
+  }
+),
  mm('future-builds','Future builds','Prototypes','Ideas on the bench.')]},
+  
 {key:'resources',title:'Resources & teaching',lead:'Lesson plans, session plans, ICT guides, templates and AI tools for trainers.',note:'Use the search box and categories to find materials. Add file links to each entry as you upload files.',entries:[
  rs('lesson-plans','Lesson plans','Lesson Plans','CBET lesson plans.'),
  rs('session-plans','Session plans','Session Plans','Session plans for practical and theory delivery.'),
