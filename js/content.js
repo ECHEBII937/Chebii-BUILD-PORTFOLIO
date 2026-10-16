@@ -286,6 +286,22 @@ var sections = [
                 'Logo project',
                 'Logos',
                 'Logo design: brief, process and final marks.'
+                    {
+        image: 'images/twinklestar.jpg',
+        gallery: [
+            'images/event-poster.jpg',
+            'images/twinklestar.jpg',
+            'images/event-poster.jpg'
+        ],
+        files: [
+            {
+                label: 'Download PDF',
+                url: 'https://drive.google.com/file/d/13hvSjddAdVKEuZdWC2UgBXucsCNcQiZe/view?usp=sharing'
+            }
+        ],
+        body: ['TWINKLE STAR ACADEMY LOGO  '],
+        placeholder: false
+    }
             ),
 
             pf(
@@ -294,24 +310,28 @@ var sections = [
                 'Branding',
                 'A full branding project: palette, type and applications.'
             ),
-
-            pf(
-                'poster-design',
-                'Poster design',
-                'Posters',
-                'Poster work for events and campaigns.',
-                {
-                    files: [
-                        {
-                            label: 'Download PDF',
-                            url: 'https://drive.google.com/file/d/15oEqNA7h1qMp-5HMatqEnwxfKxqXjcsg/view?usp=drive_link'
-                        }
-                    ],
-                    body: ['HAPPY MASHUJAA DAY '],
-                    placeholder: false
-                }
-            ),
-
+pf(
+    'poster-design',
+    'Poster design',
+    'Posters',
+    'Poster work for events and campaigns.',
+    {
+        image: 'images/mashujaa-day-poster.jpg',
+        gallery: [
+            'images/event-poster.jpg',
+            'images/twinklestar.jpg',
+            'images/event-poster.jpg'
+        ],
+        files: [
+            {
+                label: 'Download PDF',
+                url: 'https://drive.google.com/file/d/15oEqNA7h1qMp-5HMatqEnwxfKxqXjcsg/view?usp=drive_link'
+            }
+        ],
+        body: ['HAPPY MASHUJAA DAY '],
+        placeholder: false
+    }
+),
             pf(
                 'brochure-layout',
                 'Brochure layout',
