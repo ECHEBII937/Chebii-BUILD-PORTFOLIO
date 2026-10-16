@@ -286,6 +286,22 @@ var sections = [
                 'Logo project',
                 'Logos',
                 'Logo design: brief, process and final marks.'
+                    {
+        image: 'images/twinklestar.jpg',
+        gallery: [
+            'images/twinklestar.jpg',
+            'images/twinklestar.jpg',
+            'images/twinklestar.jpg',
+        ],
+        files: [
+            {
+                label: 'Download PDF FILE',
+                url: 'https://drive.google.com/file/d/15oEqNA7h1qMp-5HMatqEnwxfKxqXjcsg/view?usp=sharing'
+            }
+        ],
+        body: ['HAPPY MASHUJAA DAY '],
+        placeholder: false
+    }
             ),
 
             pf(
@@ -303,12 +319,10 @@ pf(
         image: 'images/mashujaa-day-poster.jpg',
         gallery: [
             'images/event-poster.jpg',
-            'images/birthday-poster.jpg',
-            'images/promo-poster.jpg'
         ],
         files: [
             {
-                label: 'Download PDF',
+                label: 'Download PDF FILE',
                 url: 'https://drive.google.com/file/d/15oEqNA7h1qMp-5HMatqEnwxfKxqXjcsg/view?usp=drive_link'
             }
         ],
