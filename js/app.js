@@ -67,11 +67,13 @@ function entry(s,slug){
   if(imgs.length===1)h+='<img class="zoomable" src="'+esc(imgs[0])+'" alt="'+esc(e.title)+'" style="max-width:100%">';
   else if(imgs.length>1)h+=carousel(imgs,e.title);
   h+='<p class="lead">'+esc(e.summary)+'</p>'+(e.body||[]).map(function(p){return'<p>'+esc(p)+'</p>'}).join('');
-  if(e.price!==undefined)h+='<p><span class="price">'+(e.price?'KES '+e.price:'Price to be set')+'</span><br><button class="btn p off" disabled>Checkout not configured</button></p>';
+
   if(e.meta)h+='<dl>'+Object.keys(e.meta).map(function(k){return'<div style="display:contents"><dt>'+esc(k)+'</dt><dd>'+esc(e.meta[k])+'</dd></div>'}).join('')+'</dl>';
-  if(e.links)h+='<p>'+(e.links.length?e.links.map(function(l){return'<a class="btn s" href="'+esc(l.url)+'" target="_blank" rel="noopener noreferrer">'+esc(l.label)+'</a>'}).join(' '):'<span class="meta">File link not set.</span>')+'</p>';
+  if(e.price!==undefined)h+=checkoutHtml(e);
+  if(e.links&&e.links.length)h+='<h2 class="eh">Links</h2><div class="btnrow">'+btns(e.links,'')+'</div>';
+  if(e.files&&e.files.length)h+='<h2 class="eh">Downloads</h2><div class="btnrow">'+btns(e.files,'&#8595; ')+'</div>';
   if(e.log)h+='<h2 style="font-size:28px;margin-top:36px">Build log</h2><ul class="log">'+e.log.map(function(l){return'<li><b>'+esc(l.title)+'</b><span class="meta">'+esc(l.date)+'</span><p style="margin:6px 0 0">'+esc(l.text)+'</p></li>'}).join('')+'</ul>';
-  return{title:e.title,desc:e.summary,html:h+'</article>',after:initCarousel};}
+  return{title:e.title,desc:e.summary,html:h+'</article>',after:function(){initCarousel();initCheckout()}};}
 
 function youtube(){
   var html=ytBanner()+'<section class="sec"><div class="wrap">'+rv('<h2>Categories</h2>')+'<div class="grid" id="cats">'+categories.map(function(c){return'<button class="catc" data-c="'+esc(c.name)+'" aria-pressed="false"><b>'+esc(c.name)+'</b><p>'+esc(c.d)+'</p></button>'}).join('')+'</div><h2 style="margin-top:56px">Latest uploads</h2><div id="vids"></div></div></section>';
@@ -117,6 +119,37 @@ var lb=document.createElement('div');lb.className='lb';lb.innerHTML='<img alt=""
 main.addEventListener('click',function(e){var i=e.target.closest&&e.target.closest('img.zoomable');if(!i)return;var im=lb.querySelector('img');im.src=i.src;im.alt=i.alt;lb.classList.add('open')});
 lb.addEventListener('click',function(){lb.classList.remove('open')});
 addEventListener('keydown',function(e){if(e.key==='Escape')lb.classList.remove('open')});
+
+/* ---------- missing-image placeholder, downloads, checkout ---------- */
+var PH=(function(){var g='';for(var x=0;x<=400;x+=40)g+='M'+x+' 0V300';for(var y=0;y<=300;y+=40)g+='M0 '+y+'H400';
+  return'data:image/svg+xml;utf8,'+encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300"><rect width="400" height="300" fill="#101713"/><path d="'+g+'" stroke="#65C995" stroke-opacity=".2" fill="none"/><text x="200" y="154" text-anchor="middle" fill="#65C995" font-family="Arial,sans-serif" font-size="18" font-weight="bold">Image coming soon</text></svg>')})();
+document.addEventListener('error',function(e){var t=e.target;if(t&&t.tagName==='IMG'&&!t.dataset.ph){t.dataset.ph='1';t.src=PH}},true);
+function fixDrive(u){var m=/drive\.google\.com\/file\/d\/([^\/?#]+)/.exec(u||'');return m?'https://drive.google.com/uc?export=download&id='+m[1]:u}
+function btns(list,icon){return list.map(function(l){return l.url?'<a class="btn s" href="'+esc(fixDrive(l.url))+'" target="_blank" rel="noopener noreferrer">'+icon+esc(l.label)+'</a>':'<span class="btn s off" aria-disabled="true">'+esc(l.label)+' (link coming soon)</span>'}).join('')}
+function checkoutHtml(e){
+  var pay=site.payments||{},till=pay.mpesaTill||'',price=e.price?'KES '+e.price:'Price to be set',amt=e.price?'KES '+e.price:'the product price',
+  msg='Hello, I want to buy "'+e.title+'" ('+(e.price?'KES '+e.price:'price to confirm')+'). I paid via M-Pesa Till '+till+'. M-Pesa code: ',
+  wa='https://wa.me/'+(pay.whatsapp||'')+'?text='+encodeURIComponent(msg),
+  steps=['Open <b>M-Pesa</b> on your phone','Select <b>Lipa na M-Pesa</b>','Choose <b>Buy Goods and Services</b>','Enter Till Number <b>'+esc(till)+'</b>','Enter the amount: <b>'+esc(amt)+'</b>','Enter your M-Pesa PIN and confirm'+(pay.tillName?' (the name shown should be <b>'+esc(pay.tillName)+'</b>)':''),'Send the M-Pesa confirmation code to me on WhatsApp to receive your download'];
+  return'<div class="buy"><div class="buyhead"><span class="price">'+esc(price)+'</span>'+(e.placeholder?'<span class="badge">Sample product</span>':'')+'</div>'+
+  '<button class="btn p" id="buybtn" aria-expanded="false" aria-controls="checkout">Checkout</button>'+
+  '<div class="checkout" id="checkout" hidden><div class="sum"><span>Order</span><b>'+esc(e.title)+'</b><span>'+esc(price)+'</span></div>'+
+  '<div class="ptabs" role="tablist" aria-label="Payment method"><button role="tab" class="on" data-p="mpesa" aria-selected="true">M-Pesa (Lipa na M-Pesa)</button><button role="tab" data-p="card" aria-selected="false">Visa card</button></div>'+
+  '<div class="ppanel" id="p-mpesa"><div class="mp"><div><ol class="steps">'+steps.map(function(x){return'<li>'+x+'</li>'}).join('')+'</ol>'+
+  '<p class="till">Till number <b id="tillno">'+esc(till)+'</b> <button class="btn s" id="copytill" type="button">Copy</button></p>'+
+  '<a class="btn p" href="'+esc(wa)+'" target="_blank" rel="noopener noreferrer">I have paid: send code on WhatsApp</a></div>'+
+  '<figure class="qr"><img class="zoomable" src="'+esc(pay.qr||'')+'" alt="M-Pesa till QR code"><figcaption>Scan to pay Till '+esc(till)+'</figcaption></figure></div></div>'+
+  '<div class="ppanel" id="p-card" hidden><div class="cardbox"><span class="visa">VISA</span><p><b>Card payments are coming soon.</b> Secure checkout by Visa card will open here once the payment gateway is connected. Please use M-Pesa for now.</p>'+
+  '<div class="fakefields" aria-hidden="true"><input disabled placeholder="Card number"><input disabled placeholder="MM / YY"><input disabled placeholder="CVC"></div><button class="btn p off" disabled>Pay by card (coming soon)</button></div></div></div></div>';}
+function initCheckout(){
+  var b=$('#buybtn');if(!b)return;var box=$('#checkout');
+  b.addEventListener('click',function(){var opening=box.hasAttribute('hidden');if(opening)box.removeAttribute('hidden');else box.setAttribute('hidden','');b.setAttribute('aria-expanded',String(opening));b.textContent=opening?'Close checkout':'Checkout'});
+  $$('.ptabs button').forEach(function(t){t.addEventListener('click',function(){
+    $$('.ptabs button').forEach(function(x){var on=x===t;x.classList.toggle('on',on);x.setAttribute('aria-selected',String(on))});
+    $$('.ppanel').forEach(function(p){if(p.id==='p-'+t.dataset.p)p.removeAttribute('hidden');else p.setAttribute('hidden','')})})});
+  var c=$('#copytill');if(c)c.addEventListener('click',function(){var v=$('#tillno').textContent;
+    var done=function(m){c.textContent=m;setTimeout(function(){c.textContent='Copy'},1800)};
+    if(navigator.clipboard&&navigator.clipboard.writeText)navigator.clipboard.writeText(v).then(function(){done('Copied')},function(){done('Copy failed')});else done('Copy failed')})}
 
 /* ---------- router ---------- */
 function route(){
