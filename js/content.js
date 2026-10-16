@@ -294,24 +294,28 @@ var sections = [
                 'Branding',
                 'A full branding project: palette, type and applications.'
             ),
-
-            pf(
-                'poster-design',
-                'Poster design',
-                'Posters',
-                'Poster work for events and campaigns.',
-                {
-                    files: [
-                        {
-                            label: 'Download PDF',
-                            url: 'https://drive.google.com/file/d/15oEqNA7h1qMp-5HMatqEnwxfKxqXjcsg/view?usp=drive_link'
-                        }
-                    ],
-                    body: ['HAPPY MASHUJAA DAY '],
-                    placeholder: false
-                }
-            ),
-
+pf(
+    'poster-design',
+    'Poster design',
+    'Posters',
+    'Poster work for events and campaigns.',
+    {
+        image: 'images/mashujaa-day-poster.jpg',
+        gallery: [
+            'images/event-poster.jpg',
+            'images/birthday-poster.jpg',
+            'images/promo-poster.jpg'
+        ],
+        files: [
+            {
+                label: 'Download PDF',
+                url: 'https://drive.google.com/file/d/15oEqNA7h1qMp-5HMatqEnwxfKxqXjcsg/view?usp=drive_link'
+            }
+        ],
+        body: ['HAPPY MASHUJAA DAY '],
+        placeholder: false
+    }
+),
             pf(
                 'brochure-layout',
                 'Brochure layout',
