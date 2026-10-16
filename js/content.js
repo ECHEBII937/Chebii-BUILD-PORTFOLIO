@@ -33,9 +33,9 @@ const NOTE='This is a placeholder. Replace it in js/content.js with the real det
 const mk=(slug,title,category,summary,x={})=>({slug,title,category,summary,body:[NOTE],placeholder:true,...x});
 const pics=(slug,n)=>{const a=Array.from({length:n},(_,i)=>'images/'+slug+'-'+(i+1)+'.jpg');return{image:a[0],gallery:a.slice(1)}};
 const PDF=(label)=>[{label:label||'Download PDF',url:''}];
-const pf=(slug,title,cat,summary)=>mk(slug,title,cat,summary,{...pics(slug,4),files:PDF('Download PDF')});
+const pf=(slug,title,cat,summary,x={})=>mk(slug,title,cat,summary,{...pics(slug,4),files:PDF('Download PDF'),...x});
 const sw=(slug,title,summary,body,tech)=>mk(slug,title,'Software',summary,{...pics(slug,3),body:[body],meta:{Technologies:tech||'To be added',Status:'To be added'},links:[{label:'View repository on GitHub',url:''}],placeholder:false});
-const mm=(slug,title,cat,summary)=>mk(slug,title,cat,summary,{...pics(slug,5),meta:{Materials:'To be added',Progress:'To be added','Lessons learned':'To be added'},log:[{date:'Date',title:'First log entry',text:'What you did, what worked, what went wrong. Add photos.'}],files:[{label:'Download drawing (PDF)',url:''},{label:'Download plans / files',url:''}]});
+const mm=(slug,title,cat,summary,x={})=>mk(slug,title,cat,summary,{...pics(slug,5),meta:{Materials:'To be added',Progress:'To be added','Lessons learned':'To be added'},log:[{date:'Date',title:'First log entry',text:'What you did, what worked, what went wrong. Add photos.'}],files:[{label:'Download drawing (PDF)',url:''},{label:'Download plans / files',url:''}],...x});
 const rs=(slug,title,cat,summary,files)=>mk(slug,title,cat,summary,{...pics(slug,1),files:files||PDF('Download PDF')});
 const pr=(slug,title,cat,summary,price)=>mk(slug,title,cat,summary,{...pics(slug,3),price:price,meta:{Format:'To be added',Includes:'To be added'},body:['Sample product. Replace with what the buyer gets, how it is delivered and how to use it.']});
 const jp=(slug,title,cat,summary)=>mk(slug,title,cat,summary,{...pics(slug,1)});
@@ -44,7 +44,10 @@ var sections=[
 {key:'portfolio',title:'Creative portfolio',lead:'Logos, branding, posters, brochures, layouts, digital content and print-ready artwork.',entries:[
  pf('logo-project','Logo project','Logos','Logo design: brief, process and final marks.'),
  pf('brand-identity','Brand identity','Branding','A full branding project: palette, type and applications.'),
- pf('poster-design','Poster design','Posters','Poster work for events and campaigns.'),
+ pf('poster-design','Poster design','Posters','Poster work for events and campaigns.',
+   {files:[{label:'Download PDF',url:'https://drive.google.com/file/d/15oEqNA7h1qMp-5HMatqEnwxfKxqXjcsg/view?usp=drive_link'}],
+    body:['HAPPY MASHUJAA DAY '],
+    placeholder:false}),
  pf('brochure-layout','Brochure layout','Brochures & Layouts','Brochure and layout design.'),
  pf('print-ready-artwork','Print-ready artwork','Print','Artwork prepared for print production.'),
  pf('digital-content','Digital content','Digital','Social and digital marketing content.')]},
