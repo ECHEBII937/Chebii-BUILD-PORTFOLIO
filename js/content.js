@@ -286,6 +286,22 @@ var sections = [
                 'Logo project',
                 'Logos',
                 'Logo design: brief, process and final marks.'
+                    {
+        image: 'images/twinklestar.jpg',
+        gallery: [
+            'images/event-poster.jpg',
+            'images/twinklestar.jpg',
+            'images/event-poster.jpg'
+        ],
+        files: [
+            {
+                label: 'Download PDF',
+                url: 'https://drive.google.com/file/d/13hvSjddAdVKEuZdWC2UgBXucsCNcQiZe/view?usp=sharing'
+            }
+        ],
+        body: ['TWINKLE STAR ACADEMY LOGO  '],
+        placeholder: false
+    }
             ),
 
             pf(
@@ -303,8 +319,8 @@ pf(
         image: 'images/mashujaa-day-poster.jpg',
         gallery: [
             'images/event-poster.jpg',
-            'images/birthday-poster.jpg',
-            'images/promo-poster.jpg'
+            'images/twinklestar.jpg',
+            'images/event-poster.jpg'
         ],
         files: [
             {
