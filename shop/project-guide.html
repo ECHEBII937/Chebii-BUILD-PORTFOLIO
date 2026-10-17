@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Practical project guide | Emmanuel Kibiwott Chebii</title>
+<meta name="description" content="A practical guide to building a real project.">
+<meta name="theme-color" content="#174F38"><meta property="og:title" content="Practical project guide | Emmanuel Kibiwott Chebii"><meta property="og:description" content="A practical guide to building a real project."><meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='8' fill='%23174F38'/%3E%3Ctext x='32' y='43' font-family='Montserrat,Arial' font-weight='800' font-size='28' text-anchor='middle' fill='%23F4F5F0'%3EEC%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700;800&family=Michroma&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/styles.css">
+<script>document.documentElement.className='js'</script>
+</head>
+<body>
+<div class="prog"></div><div class="glow"></div><a class="skip" href="#main">Skip to content</a>
+<!-- ===== HEADER (same on every page: to change the menu, use Find and Replace across all files) ===== -->
+<header><div class="wrap"><a class="mono" href="../index.html" aria-label="Emmanuel Kibiwott Chebii, home"><b>EC</b><span>Emmanuel Kibiwott Chebii</span></a>
+<nav id="nav" aria-label="Main"><a href="../portfolio.html">Design</a><a href="../software.html">Software &amp; AI</a><a href="../maker.html">Maker Lab</a><a href="../youtube.html">YouTube</a><a href="../resources.html">Resources</a><a href="../shop.html" class="active" aria-current="page">Shop</a><a href="../journal.html">Journal</a><a href="../about.html">About</a><a href="../contact.html">Contact</a></nav>
+<div class="hb"><button id="theme" aria-label="Toggle light and dark theme">Theme</button><button class="menu" id="menu" aria-expanded="false">Menu</button></div></div></header>
+<main id="main">
+<article class="wrap entry"><p><a href="../shop.html">Back to Digital shop</a></p>
+<h1 class="pgt">Practical project guide</h1><p class="meta">Guides <span class="badge">Sample product</span></p>
+<!-- IMAGES: upload project-guide-1.jpg to project-guide-3.jpg to the images folder. To add another, copy a <figure> line. -->
+<div class="car" role="region" aria-roledescription="carousel" aria-label="Practical project guide images"><div class="car-track" tabindex="0">
+<figure><img class="zoomable" src="../images/project-guide-1.jpg" alt="Practical project guide - image 1"></figure>
+<figure><img class="zoomable" src="../images/project-guide-2.jpg" alt="Practical project guide - image 2"></figure>
+<figure><img class="zoomable" src="../images/project-guide-3.jpg" alt="Practical project guide - image 3"></figure>
+</div><button class="car-btn prev" aria-label="Previous image">&#8249;</button><button class="car-btn next" aria-label="Next image">&#8250;</button><div class="car-count"></div><div class="car-dots"></div></div>
+<p class="lead">A practical guide to building a real project.</p>
+<!-- DESCRIPTION: one <p> per paragraph. When it is real, delete the placeholder badge above. -->
+<p>Sample product. Replace with what the buyer gets, how it is delivered and how to use it.</p>
+<!-- DETAILS: edit the text after each label -->
+<dl><dt>Format</dt><dd>To be added</dd><dt>Includes</dt><dd>To be added</dd></dl>
+<!-- ===== CHECKOUT (till number, price, QR and WhatsApp number can be edited here) ===== -->
+<div class="buy"><div class="buyhead"><span class="price">KES 600</span><span class="badge">Sample product</span></div>
+<button class="btn p" id="buybtn" aria-expanded="false" aria-controls="checkout">Checkout</button>
+<div class="checkout" id="checkout" hidden><div class="sum"><span>Order</span><b>Practical project guide</b><span>KES 600</span></div>
+<div class="ptabs" role="tablist" aria-label="Payment method"><button role="tab" class="on" data-p="mpesa" aria-selected="true">M-Pesa (Lipa na M-Pesa)</button><button role="tab" data-p="card" aria-selected="false">Visa card</button></div>
+<div class="ppanel" id="p-mpesa"><div class="mp"><div><ol class="steps"><li>Open <b>M-Pesa</b> on your phone</li><li>Select <b>Lipa na M-Pesa</b></li><li>Choose <b>Buy Goods and Services</b></li><li>Enter Till Number <b>4686524</b></li><li>Enter the amount: <b>KES 600</b></li><li>Enter your M-Pesa PIN and confirm</li><li>Send the M-Pesa confirmation code to me on WhatsApp to receive your download</li></ol>
+<p class="till">Till number <b id="tillno">4686524</b> <button class="btn s" id="copytill" type="button">Copy</button></p>
+<a class="btn p" href="https://wa.me/254700477205?text=Hello%2C%20I%20want%20to%20buy%20%22Practical%20project%20guide%22%20%28KES%20600%29.%20I%20paid%20via%20M-Pesa%20Till%204686524.%20M-Pesa%20code%3A%20" target="_blank" rel="noopener noreferrer">I have paid: send code on WhatsApp</a></div>
+<figure class="qr"><img class="zoomable" src="../images/mpesa-till-qr.png" alt="M-Pesa till QR code"><figcaption>Scan to pay Till 4686524</figcaption></figure></div></div>
+<div class="ppanel" id="p-card" hidden><div class="cardbox"><span class="visa">VISA</span><p><b>Card payments are coming soon.</b> Secure checkout by Visa card will open here once the payment gateway is connected. Please use M-Pesa for now.</p>
+<div class="fakefields" aria-hidden="true"><input disabled placeholder="Card number"><input disabled placeholder="MM / YY"><input disabled placeholder="CVC"></div><button class="btn p off" disabled>Pay by card (coming soon)</button></div></div></div></div>
+</article>
+</main>
+<!-- ===== FOOTER ===== -->
+<footer><div class="wrap">&copy; <span id="yr">2026</span> Emmanuel Kibiwott Chebii. Design. Build. Experiment. &middot; Eldoret, Kenya</div></footer>
+<script src="../js/effects.js"></script>
+</body></html>
